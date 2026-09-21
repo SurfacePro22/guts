@@ -1,0 +1,13 @@
+# Nested git repos used for git-practice exercises (prac/*_EXERCISE.md).
+# These are scratch repos, not real submodules, and having no .gitmodules
+# entry for them breaks GitHub Pages' recursive submodule checkout.
+prac/calculator-a/
+prac/calculator-b/
+prac/origin2/
+prac/rebase-demo/
+prac/submodule-demo/
+prac/submodule-demo-clone/
+prac/submodule-lib/
+prac/suh/
+prac/test/
+prac/worktree-demo/
