@@ -243,7 +243,37 @@
       </ul>
     </div>
 
-    <p>비유하자면 Git은 카메라·편집 프로그램으로 만들어 내 컴퓨터에 저장하는 <b>동영상 파일</b>이다 — 유튜브 없이도 재생된다. GitHub은 그 영상을 올려서 사람들과 공유하고 댓글·조회수 같은 부가 기능을 붙이는 <b>유튜브</b>다. "동영상에 올린다"가 아니라 "유튜브에 올린다"고 말하듯, "git에 올린다"가 아니라 "<b>github에 올린다(push한다)</b>"가 맞는 표현이다.</p>
+    <p>영상 편집에 비유하면 네 가지 개념이 깔끔하게 나뉜다. <b>Git은 Premiere Pro</b>(편집 프로그램), <b>Repo는 프로젝트 파일</b>(<span class="inline-code">.prproj</span>), <b>Release는 거기서 뽑아낸 동영상</b>(<span class="inline-code">.mp4</span>), <b>GitHub은 YouTube</b>다. 가장 흔한 혼동은 Git과 Repo를 같은 것으로 보는 것인데, Premiere Pro와 내 프로젝트 파일이 다른 것처럼 <b>Git은 프로그램이고 Repo는 그 프로그램이 다루는 데이터</b>다.</p>
+
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Git 세계</th><th>영상 편집 세계</th><th>정체</th><th>어디에 있나</th></tr></thead>
+        <tbody>
+          <tr><td>Git</td><td>Premiere Pro</td><td>도구(프로그램). 설치해서 쓴다</td><td>내 컴퓨터에 설치된 <span class="inline-code">git</span> 실행 파일</td></tr>
+          <tr><td>Repo</td><td>프로젝트 파일 (<span class="inline-code">.prproj</span>)</td><td>작업물 + 편집 이력 전체. 언제든 다시 열어 고칠 수 있다</td><td>프로젝트 폴더 안의 <span class="inline-code">.git/</span></td></tr>
+          <tr><td>Release</td><td>내보낸 동영상 (<span class="inline-code">.mp4</span>)</td><td>특정 시점을 확정해 뽑아낸 배포용 결과물. 편집 이력은 없다</td><td>태그(<span class="inline-code">v1.0</span>) + 빌드 파일·소스 압축본</td></tr>
+          <tr><td>GitHub</td><td>YouTube</td><td>올려서 공유하고 댓글·협업 기능을 얹는 서비스</td><td>인터넷 서버</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Git ≠ Repo — 프로그램과 프로젝트 파일은 다르다</h4>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>상황</th><th>영상 편집</th><th>Git</th></tr></thead>
+        <tbody>
+          <tr><td>개수</td><td>Premiere 하나로 프로젝트 파일 수십 개를 연다</td><td><span class="inline-code">git</span> 하나로 repo 수십 개를 관리한다</td></tr>
+          <tr><td>새로 만들기</td><td>"새 프로젝트" → <span class="inline-code">.prproj</span> 생성</td><td><span class="inline-code">git init</span> → <span class="inline-code">.git/</span> 생성</td></tr>
+          <tr><td>프로그램 삭제</td><td>Premiere를 지워도 <span class="inline-code">.prproj</span>는 남는다</td><td>Git을 지워도 <span class="inline-code">.git/</span>은 남는다 (다시 설치하면 그대로 열림)</td></tr>
+          <tr><td>작업물 삭제</td><td><span class="inline-code">.prproj</span>를 지우면 편집 이력이 사라진다</td><td><span class="inline-code">.git/</span>을 지우면 커밋 이력이 사라진다 (파일만 남음)</td></tr>
+          <tr><td>전달</td><td>프로젝트 파일을 넘기면 상대도 이어서 편집 가능</td><td>repo를 clone하면 상대도 전체 이력을 갖고 이어서 작업 가능</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>그래서 "git에 올린다"는 말은 "Premiere에 올린다"처럼 어색하다. 올리는 대상은 <b>repo</b>이고 올리는 곳은 <b>GitHub</b>이다 — "<b>repo를 GitHub에 push한다</b>"가 맞는 표현이다.</p>
+
+    <div class="note"><strong>비유의 한계</strong> — YouTube에는 보통 완성된 동영상만 올리지만, GitHub에는 <b>프로젝트 파일(repo) 자체</b>를 통째로 올리고, 필요하면 그 옆에 <b>동영상(Release)</b>도 따로 게시한다. 즉 GitHub은 "프로젝트 파일 공유 + 영상 게시"를 함께 하는 YouTube에 가깝다. 또 Release의 태그는 repo 안에 기록되지만, 첨부 파일·릴리스 노트는 GitHub 기능이라 repo 밖(GitHub 서버)에 저장된다.</div>
 
     <div class="table-wrap">
       <table class="cmp">
@@ -259,7 +289,7 @@
       </table>
     </div>
 
-    <div class="summary-line"><b class="tag">요약</b>Git = 버전관리 <b>도구</b>, GitHub = 그 도구로 만든 저장소를 올리고 협업 기능을 더하는 <b>서비스</b> 중 하나.</div>
+    <div class="summary-line"><b class="tag">요약</b>Git = 버전관리 <b>도구</b>(Premiere Pro), Repo = 그 도구가 다루는 <b>작업물+이력</b>(프로젝트 파일), Release = 특정 시점의 <b>배포본</b>(동영상), GitHub = repo를 올리고 협업 기능을 더하는 <b>서비스</b>(YouTube) 중 하나.</div>
   </section>
 
   <!-- ============ CHAPTER 2 ============ -->
